@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+using std::cout;
+int main() {
+	int x=0;
+	int y=0;
+	int z;
+
+	int seat1{};
+	int seat2{};
+
+	cout << endl;
+	cout << "좌석 예약하시겠습니까?(0이나 1선택)";
+	cin >> z;
+
+	cout << endl;
+	cout << "몇 열, 몇 번째 좌석을 예약하시겠습니까?";
+	cin >> seat1, seat2;
+	int arr[3][10] = {};
+
+	if (arr[seat2][seat1] != 1) {
+
+		cout << "예약되었습니다" << endl;
+
+
+		for (int y = 0; y < 3; y++) {
+			for (int x = 0; x < 10; x++) {
+				cout << arr[y][x] << "";
+				arr[seat2+1][seat1] = 1;
+			}
+			
+			cout << endl;
+		}
+	}
+}
