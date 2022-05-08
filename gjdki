@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int n;
+	int arr[3][10]{ 0 };
+	int a, b;
+	
+	while (1) {
+		cout << "좌석을 예약하시겠습니까?(0이나 1선택):";
+		cin >> n;
+		
+		if (n == 1) {
+			
+			cout << "1 2 3 4 5 6 7 8 9 10" << endl;
+			cout << "-----------------------" << endl;
+			
+			for (int j = 0; j < 3; j++) {
+				for (int k = 0; k < 10; k++) {
+					cout << arr[j][k] << " ";
+				}
+				cout << endl;
+			}
+			cout << "몇열,몇번째 좌석을 예약하시겠습니까? " << endl;
+			cin >> a >> b;
+
+			if (arr[a - 1][b - 1] == 0) { //인덱스가 0부터 시작
+				cout << "예약되었습니다." << endl;
+				cout << "1 2 3 4 5 6 7 8 9 10" << endl;
+				cout << "--------------------" << endl;
+				arr[a - 1][b - 1] = 1; //선택한 좌석을 1로 바꾼다
+
+				for (int j = 0; j < 3; j++) {
+					for (int k = 0; k < 10; k++) {
+						cout << arr[j][k] << " ";
+					}
+					cout << endl;
+				}
+			}
+			else {
+				cout << "이미 예약된 자리 입니다" << endl;
+			}
+		}
+		else if (n == 0) {
+			cout << "좌석 예약 종료" << endl;
+			cout << "좌석 예약 종료" << endl;
+			break;
+		}
+
+	}
+}
