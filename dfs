@@ -1,0 +1,41 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+
+using namespace std;
+
+int main() {
+	int rand1, num, mul,n;
+	srand(time(NULL));
+	rand1 = (rand() % 100);
+
+	cout << "랜덤한 수:" << rand1 << endl;
+	cout << "특정배수 개수:";
+	cin >> n;
+	cout << "특정배수만 출력하는 프로그램" << endl;
+
+	for (int i = 0; i < n; i++) {
+		cout << i << "번째 특정 배수: ";
+		cin >> mul;
+		cout << "특정배수만 출력하는 프로그램>" << endl;
+
+		for (int k = 1; k <= rand1; k++) {
+			if (k % mul == 0) {
+				cout << k << ",";
+			}
+		}
+		cout << endl;
+
+		cout << "특정배수 제외 출력하는 프로그램" << endl;
+		for (int j = 1; j <= rand1; j++) {
+			if (j % mul == 0) {
+				continue;
+			}
+			
+				cout << j << ",";
+			
+		}
+		cout << endl;
+	}
+	return 0;
+}
