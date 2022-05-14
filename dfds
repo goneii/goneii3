@@ -5,21 +5,27 @@ int total(int* a, int* b, int* c, int* d) {
 	return *a + *b + *c + *d;
 }
 void myaccounts(string* e, string* f, string* g, string* h) {
-	cout << "  " << *e << " | " << *f << "  |  " << *g << "  |  " << *h << "  |  ";
-	cout << "     5000" << "|     4000" << "|        0" << " |       10" << "|";
+	cout << "  " << *e << " | " << *f << "  |  " << *g << "  |  " << *h << "  |  "<<endl;
+	cout << "     5000" << "|     4000" << "|        0" << " |       10" << "|"<<endl;
+	cout << endl;
 	return;
 }
 
 
 int main() {
-	int total_money=0;
+	int sum = 0;
 	string bank_name[4] = { "하나","우리","신한","국민" };
 	int bank[4] = { 5000,4000,0,10 };
 
+	sum = total(&bank[0], &bank[1], &bank[2], &bank[3]);
+	
+
 	cout << "************SWING 자산관리 서비스*************" << endl;
 	cout << "-------------은행 별 계좌정보------------------" << endl;
+	myaccounts(&bank_name[0], &bank_name[1], &bank_name[2], &bank_name[3]);
+	cout << endl;
 
-	cout << "현재 SWING 자산관리 서비스에 등록된 회원님의 총자산은" << total_money << "원 입니다" << endl;
+	cout << "현재 SWING 자산관리 서비스에 등록된 회원님의 총자산은" << sum << "원 입니다" << endl;
 	cout << "***********************************************" << endl;
-
+	return 0;
 }
