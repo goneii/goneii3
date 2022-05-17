@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+
+class Shape {
+private:
+	string NAME;
+	int A;	//가로1
+	int B;	//세로	
+	int c;	//가로2
+
+public:
+	Shape()
+};
