@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+class Box {
+private:
+	char t = '*';
+	int garo, sero=0,0;
+public:
+	Box(int w, int h) {
+		garo = w;
+		sero = h;
+	}
+	char setFil(char t);		//생성자,문자를 세팅하는 함수
+	int setSize(int w, int h);	//사각형 크기를 세팅하는 함수
+	void draw(int w, int h);	//사각형을 출력하는 함수
+};
+
+char Box::setFil(char f) {
+	t=f;
+	return t;
+}
+int Box::setSize(int w, int h) {
+	garo = w;
+	sero = h;
+	return w;
+	return h;
+}
+void Box::draw(int w, int h) {
+	for (int a = 0; a < h; a++) {
+		for (int j = 0; j < w; j++) {
+			cout << setFil(t);
+		}
+		cout << endl;
+	}
+}
+int main() {
+	Box rectangle_1(3, 4);
+	rectangle_1.setFil('*');
+	rectangle_1.setSize(3, 4);
+	rectangle_1.draw(3, 4);
+
+	Box rectangle_2(6, 10);
+	rectangle_2.setFil('^');
+	rectangle_2.setSize(6, 10);
+	rectangle_2.draw(6, 10);
+}
