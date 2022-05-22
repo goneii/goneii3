@@ -1,13 +1,104 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Shape {
+class Shape
+{
 private:
-	string NAME;
-	int A;	//가로1
-	int B;	//세로	
-	int c;	//가로2
+    string NAME;
+    
+    int A;
+    int B; 
+    int C; 
 
 public:
-	Shape()
+    Shape(string NAME = "CircleA") {
+        this->NAME = NAME;
+    }
+
+    Shape(int a, int b, string NAME = "Rectangular") 
+    {
+        this->NAME = NAME;
+        A = a;
+        B = b;
+    }
+    Shape(int a, int b, int c, string NAME = "Ladder") 
+    {
+        this->NAME = NAME;
+        A = a;
+        B = b;
+        C = c;
+    }
+
+
+    ~Shape() {
+
+        cout << "Shape 소멸" << NAME << "클래스" << endl;
+    }
+
+    int getA(int A){
+        return A;
+    }
+    int getB(int B){
+        return B;
+    }
+    int getC(int C){
+        return C;
+    }
+
+
+    int setTwo(int a, int b){
+        A = a;
+        B = b;
+        return A;
+        return B;
+    }
+
+    int setThree(int a, int b, int c){
+        A = a;
+        B = b;
+        C = c;
+        return A, B, C;
+    }
+    double AreaOval(int A, int B);
+    int AreaLadder(int A, int B, int C);
+    int AreaRect(int A, int B);
+
 };
+
+
+double Shape::AreaOval(int A, int B) 
+{
+    double area1 = getA(A) * getB(B) * 3.14;
+    cout << "타원의 넓이는 " << area1 << "이다." << endl;
+    return area1;
+}
+int Shape::AreaRect(int A, int B) 
+{
+    int area2 = getA(A) * getB(B);
+    cout << "사각형의 넓이는 " << area2 << "이다." << endl;
+
+    return area2;
+}
+int Shape::AreaLadder(int A, int B, int C)
+{
+    int area3 = (getA(A) + getC(C)) * getB(B) * 1 / 2;
+    cout << "사다리꼴의 넓이는 " << area3 << "이다." << endl;
+
+    return area3;
+}
+
+int main(){ 
+
+    Shape a;
+    a.setTwo(5, 1);
+    a.AreaOval(5, 1);
+    Shape b(10, 20);
+    b.setTwo(10, 20);
+    a.AreaRect(10, 20);
+    Shape c(3, 7, 4);
+    c.setThree(3, 7, 4);
+    c.AreaLadder(3, 7, 4);
+    c.setThree(5, 10, 6);
+    c.AreaLadder(5, 10, 6);
+    return 0;
+}
