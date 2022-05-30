@@ -2,41 +2,40 @@
 #include <string.h>
 using namespace std;
 
+string name[20];
+string id[20];
+string password[20];
+
+string getName(string name) {
+	return name;
+}
+string getId(string id) {
+	return id;
+}
+string getPassword(string password) {
+	return password;
+}
+string Name;
+string Id;
+string Password;
+
+string SetName() {
+	cout << "이름 : " << endl;
+	cin >> Name;
+	return Name;
+}
+string SetId() {
+	cout << "아이디 : " << endl;
+	cin >> Id;
+	return Id;
+}
+string SetPassword() {
+	cout << "비밀번호 : " << endl;
+	cin >> Password;
+	return Password;
+}
 class Member {
 public:
-	string name[20];
-	string id[20];
-	string password[20];
-
-	string getName(string name) {
-		return name;
-	}
-	string getId(string id) {
-		return id;
-	}
-	string getPassword(string password) {
-		return password;
-	}
-	string Name;
-	string Id;
-	string Password;
-
-	string SetName() {
-		cout << "이름 : " << endl;
-		cin >> Name;
-		return Name;
-	}
-	string SetId() {
-		cout << "아이디 : " << endl;
-		cin >> Id;
-		return Id;
-	}
-	string SetPassword() {
-		cout << "비밀번호 : " << endl;
-		cin >> Password;
-		return Password;
-	}
-
 	void Login(string name, string Id, string Password) {
 		cout << "아이디: ";
 		string id;
@@ -59,30 +58,85 @@ public:
 
 class Cart {
 public:
-	int num;
+	int number;
 	int bag_course() {
 		cout << "추가할 학수 번호>> ";
-		cin >> num;
-		return num;
-		
+		cin >> number;
+		return number;
+
 	}
+
 };
+
 int main() {
 	string Name, ID, Password;
-	int input;
+	int input1;
+	int input2;
+	int input3;
 	while (1) {
+		cout << "----------서울여자대학교 종합정보시스템---------" << endl;
 		cout << "1. 회원가입" << endl;
 		cout << "2. 로그인" << endl << endl;
 		cout << "번호를 입력하세요 >> ";
-		cin >> input;
+		cin >> input1;
 		cout << "---------------------------------------" << endl;
 
-		if (input == 1)
+		if (input1 == 1)
 		{
 			Name = SetName();
 			ID = SetId();
-			Password = SetPassword();  // 여기서 왜 에러가 나는지 모르겠어요..
-
+			Password = SetPassword();
 			cout << "=== 회원가입 성공 ===" << endl << endl;
 		}
+		else if (input1 == 2) {
+			Member log;
+			log.Login(Name, ID, Password);
+			break;
+		}
 	}
+	while (1) {
+		cout << "============" << endl;
+		cout << "1. 장바구니" << endl;
+		cout << "2.강의 담기" << endl;
+		cout << "3.수강신청 확인" << endl;
+		cout << "4.로그아웃" << endl;
+		cout << "번호를 입력하세요: " << endl;
+		cin >> input2;
+		cout << endl;
+		if (input2 == 1) {
+			cout << "============강의 목록===========" << endl;
+			string lesson[3] = { {"[1]c++ 프로그래밍 >> 0001"},{"[2]linux 프로그래밍 >> 0002"},{"[3]리버싱 >> 0003"} };
+			for (int i = 0; i < 3; i++) {
+				cout << lesson[i] << endl;
+			}
+		}
+		else if (input2 == 2) {
+			Cart a;
+			input3 = a.bag_course();
+		}
+		else if (input2 == 3) {
+			cout << "==============My 장바구니=========" << endl;
+			if (input3 == 0001) {
+				cout << "1.c++프로그래밍" << endl;
+				cout << "2." << endl;
+				cout << "3." << endl;
+			}
+			else if (input3 == 0002) {
+				cout << "1.linux 프로그래밍" << endl;
+				cout << "2." << endl;
+				cout << "3." << endl;
+			}
+			else if (input3 == 0003) {
+				cout << "1.리버싱" << endl;
+				cout << "2." << endl;
+				cout << "3." << endl;
+			}
+			
+		}
+		else if (input2 == 4) {
+			cout << "----------로그아웃----------" << endl;
+			cout << "로그아웃 되었습니다. 안녕히 가세요" << endl;
+			break;
+		}
+	}
+}
